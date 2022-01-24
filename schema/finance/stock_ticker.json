@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "description": "string",
+        "updated_at": "date",
+        "output_size": "string",
+        "interval": "string",
+        "timezone": "string"
+    },
+    "series": [
+        {
+            "@timestamp": "date",
+            "timezone": "string",
+            "symbol": "string",
+            "open": "float",
+            "high": "float",
+            "low": "float",
+            "close": "float",
+            "volume": "number"
+        }
+    ]
+}
