@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Stock Market Event",
+    "es_index": "stockmarket",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "id": {"type": "string"},
+        "@timestamp": {"type": "string"},
+        "timezone": {"type": "string"},
+        "symbol": {"type": "string"},
+        "open": {"type": "number"},
+        "high": {"type": "number"},
+        "low": {"type": "number"},
+        "close": {"type": "number"},
+        "volume": {"type": "integer"}
+    },
+    "required": ["@timestamp", "timezone", "symbol", "open", "high", "low", "close", "volume"]
+}
