@@ -11,7 +11,7 @@ from elastic.sync import sync_document
 
 
 
-def alphavantage_connector(symbol='ESTC', series='TIME_SERIES_INTRADAY', interval='60min'):
+def alphavantage_connector(symbol='SPLK', series='TIME_SERIES_DAILY', interval='Daily'):
     """Connector for free alphavantage stock ticker API."""
     SCHEMA = './schema/finance/stock_ticker.schema.json'
 
@@ -56,9 +56,9 @@ def alphavantage_connector(symbol='ESTC', series='TIME_SERIES_INTRADAY', interva
                             valid_document[schema_key] = value
             # Match remaining fields
             valid_document['symbol'] = metadata.get('2. Symbol')
-            valid_document['timezone'] = metadata.get('6. Time Zone')
-            valid_document['@timestamp'] = dockey
-            valid_document['id'] = str(valid_document['symbol'] + valid_document['@timestamp'])
+            valid_document['timezone'] = metadata.get('5. Time Zone')
+            valid_document['timestamp'] = dockey.replace('-', '/')
+            valid_document['id'] = str(valid_document['symbol'] + valid_document['timestamp'])
 
         sync_document(schema, valid_document)
 

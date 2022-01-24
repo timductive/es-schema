@@ -88,4 +88,6 @@ def create_index(es, index):
 
 
 ES_SESSION = connect()
+
+# delete_index(ES_SESSION, 'stockmarket')
     

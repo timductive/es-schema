@@ -6,7 +6,7 @@
     "type": "object",
     "properties": {
         "id": {"type": "string"},
-        "@timestamp": {"type": "string"},
+        "timestamp": {"type": "string"},
         "timezone": {"type": "string"},
         "symbol": {"type": "string"},
         "open": {"type": "number"},
@@ -15,5 +15,5 @@
         "close": {"type": "number"},
         "volume": {"type": "integer"}
     },
-    "required": ["@timestamp", "timezone", "symbol", "open", "high", "low", "close", "volume"]
+    "required": ["timestamp", "timezone", "symbol", "open", "high", "low", "close", "volume"]
 }
