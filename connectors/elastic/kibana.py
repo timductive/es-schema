@@ -4,6 +4,8 @@ import os
 import requests
 import configparser
 
+from utils import get_root
+
 
 def create_saved_objects(type='finance', version='7.14', kibana_url=''):
     """Given a schema type (finance, git, ecommerce, etc...) install the relevant objects."""
@@ -17,7 +19,7 @@ def create_saved_objects(type='finance', version='7.14', kibana_url=''):
         except configparser.NoSectionError:
             raise FileNotFoundError('It looks like you need to create a keys_local.cfg file.')
 
-    directory = './assets/%s/%s' % (type, version)
+    directory = '%s/assets/%s/%s' % (get_root(), type, version)
     headers = {
         'kbn-xsrf': 'true',
         'Authorization': 'ApiKey %s' % api_key

@@ -9,12 +9,14 @@ import requests
 
 from elastic.sync import sync_document
 from elastic.kibana import create_saved_objects
+from utils import get_root
 
 
 
-def alphavantage_connector(symbols=[], series='TIME_SERIES_DAILY', interval='Daily'):
+def install(symbols=[], series='TIME_SERIES_DAILY', interval='Daily'):
     """Connector for free alphavantage stock ticker API."""
-    SCHEMA = './schema/finance/stock_ticker.schema.json'
+    SCHEMA = '%s/schema/finance/stock_ticker.schema.json' % get_root()
+
     if not symbols:
         symbols = ['ESTC', 'DDOG', 'SPLK']
 
@@ -82,4 +84,4 @@ def alphavantage_connector(symbols=[], series='TIME_SERIES_DAILY', interval='Dai
 
 
 if __name__ == '__main__':
-    alphavantage_connector()
+    install()
